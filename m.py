@@ -54,10 +54,15 @@ def log_command(user_id, target, port, time):
         username = "@" + user_info.username
     else:
         username = f"UserID: {user_id}"
-    
-    with open(LOG_FILE, "a") as file:  # Open in \"append\" mode
-        file.write(f\"Username: {username}\\nTarget: {target}\\nPort: {port}\\nTime: {time}\\n\\n\")
 
+    log_text = (
+        f"Username: {username}\n"
+        f"Target: {target}\n"
+        f"Port: {port}\n"
+        f"Time: {time}\n\n"
+    )
+    with open(LOG_FILE, "a") as file:  # Open in "append" mode
+        file.write(log_text)
 
 # Function to clear logs
 def clear_logs():
@@ -370,4 +375,5 @@ def broadcast_message(message):
 
 
 bot.polling()
+
 
